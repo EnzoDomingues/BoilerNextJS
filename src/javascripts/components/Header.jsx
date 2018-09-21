@@ -29,7 +29,7 @@ export default class Header extends Component {
       >
         <div className="logo">
           <Link route="/">
-            <a href=" # ">Logo</a>
+            <a href=" # ">Logoo</a>
           </Link>
         </div>
         <nav className="header-nav">
