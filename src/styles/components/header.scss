@@ -1,0 +1,165 @@
+.header {
+  position: fixed;
+  background-color: #165277;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  z-index: 100;
+  transition: all 600ms ease;
+
+  &--hide {
+    transform: translateY(-200%);
+    transition: all 600ms ease;
+  }
+
+  &--nav-active {
+    .header-logo__img {
+      &--normal {
+        @include hide();
+      }
+    }
+
+    .header-toggle__bar {
+      &:nth-child(2) {
+        width: 0%;
+      }
+
+      &:nth-child(1),
+      &:nth-child(3) {
+        top: 8px;
+        transition-delay: 100ms;
+        background-color: white;
+      }
+
+      &:nth-child(1) {
+        transform: rotate(-45deg);
+        background-color: white;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(45deg);
+        background-color: white;
+      }
+    }
+
+    .header-nav-lang__item {
+      transform: translateX(0);
+
+      @include show();
+    }
+
+    .header-nav {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+.logo {
+  width: 48%;
+  text-align: start;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.header-nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: 80px 20px 0 20px;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #165277;
+  transform: translateX(100%);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.header-nav-menu {
+  text-align: center;
+}
+
+.menu-item {
+  padding-bottom: 30px;
+  transition: all 300ms ease;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    transition: all 300ms ease;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      top: 7px;
+      left: -20px;
+      height: 5px;
+      background: white;
+      border-radius: 50%;
+
+      @include hide();
+    }
+
+    &.active {
+      color: white;
+
+      &:before {
+        @include show();
+      }
+    }
+  }
+}
+
+.header-buttons {
+  width: 50%;
+  margin-top: -5px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-toggle {
+  position: relative;
+  width: 69px;
+  height: 100%;
+  z-index: 101;
+}
+
+.header-toggle-wrapper {
+  position: relative;
+  width: 24px;
+  height: 16px;
+  display: block;
+}
+
+.header-toggle__bar {
+  position: absolute;
+  top: 0;
+  left: 44px;
+  width: 100%;
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 300ms ease;
+
+  &:nth-child(2) {
+    top: 7px;
+  }
+
+  &:nth-child(3) {
+    top: 15px;
+  }
+}
